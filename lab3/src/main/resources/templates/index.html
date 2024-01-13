@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="../css/cssIndex.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card bg-light">
+                <article class="card-body mx-auto" style="width: 500px;">
+                    <h4 class="card-title mt-3 text-center">Create Account</h4>
+                    <p class="text-center">Get started with your free account</p>
+                    <p>
+                        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                    </p>
+                    <p class="divider-text">
+                        <span class="bg-light">OR</span>
+                    </p>
+                    <form action="#" th:action="@{/student/save}" th:object="${student}" method="POST">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="name" class="form-control" placeholder="Full name" type="text">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input name="email" class="form-control" placeholder="Email address" type="email">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            </div>
+                            <input name="mark" class="form-control" placeholder="Marks" type="number">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                            </div>
+                            <select class="form-control">
+                                <option th:each="faculty : ${faculties}"><span th:text="${faculty}"></span></option>
+                            </select>
+                        </div> <!-- form-group end.// -->
+                        <div class="form-group input-group align-items-center">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <span class="mx-2">Hobbies:</span>
+                            <div class="">
+                                <div class="form-check form-check-inline" th:each="hobby : ${hobbies.keySet()}">
+                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" th:id="'inlineRadio' + ${hobby}" th:value="${hobby}">
+                                    <label class="form-check-label" th:for="'inlineRadio' + ${hobby}" th:text="${hobbies.get(hobby)}">2</label>
+                                </div>
+                            </div>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group align-items-center">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <span class="ms-3">Gender:</span>
+                            <div class="ms-3">
+                                <div class="form-check form-check-inline" th:each="gender : ${genders.keySet()}">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" th:id="'inlineRadio' + ${gender}" th:value="${gender}">
+                                    <label class="form-check-label" th:for="'inlineRadio' + ${gender}" th:text="${genders.get(gender)}"></label>
+                                </div>
+                            </div>
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="inputGroupFile02">
+                                <label class="input-group-text" for="inputGroupFile02">Upload Avatar</label>
+                            </div>
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                        </div> <!-- form-group// -->
+                        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
+        <!--container end.//-->
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+</html>
