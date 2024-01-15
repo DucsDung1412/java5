@@ -1,14 +1,15 @@
 package vn.DungVipPro.lab3.model;
 
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.URL;
 
 import java.util.List;
 
 public class Student {
     @NotBlank(message = "Vui lòng nhập họ và tên")
     private String name;
-    @NotBlank(message = "Vui lòng nhập địa chỉ email")
-    @Email(message = "Vui lòng nhập đúng định dạng email")
+    @NotBlank
+    @Email
     private String email;
     @NotNull(message = "Vui lòng nhập điểm")
     @Min(value = 0, message = "Điểm phải lớn hơn hoặc bằng 0")
@@ -20,7 +21,6 @@ public class Student {
     private String faculty;
     @NotEmpty(message = "Vui lòng chọn sở thích")
     private List<String> hobbies;
-    @NotEmpty(message = "Vui lòng chọn avatar")
     private String avatar;
 
     public Student(String name, String email, Double marks, Boolean gender, String faculty, List<String> hobbies, String avatar) {

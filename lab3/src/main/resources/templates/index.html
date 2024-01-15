@@ -27,18 +27,21 @@
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
                             <input th:field="*{name}" class="form-control" placeholder="Full name" type="text">
+                            <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                             </div>
                             <input th:field="*{email}" class="form-control" placeholder="Email address" type="email">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                             </div>
                             <input th:field="*{marks}" class="form-control" placeholder="Marks" type="number">
+                            <span class="text-danger" th:if="${#fields.hasErrors('marks')}" th:errors="*{marks}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -47,6 +50,7 @@
                             <select class="form-control" th:field="*{faculty}">
                                 <option th:each="faculty : ${faculties}" th:value="${faculty}" th:name="${faculty}" th:text="${faculty}"></option>
                             </select>
+                            <span class="text-danger" th:if="${#fields.hasErrors('faculty')}" th:errors="*{faculty}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group end.// -->
                         <div class="form-group input-group align-items-center">
                             <div class="input-group-prepend">
@@ -59,6 +63,7 @@
                                     <label class="form-check-label" th:for="'inlineRadio' + ${hobby}" th:text="${hobbies.get(hobby)}">2</label>
                                 </div>
                             </div>
+                            <span class="text-danger" th:if="${#fields.hasErrors('hobbies')}" th:errors="*{hobbies}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group align-items-center">
                             <div class="input-group-prepend">
@@ -71,13 +76,15 @@
                                     <label class="form-check-label" th:for="'inlineRadio' + ${gender}" th:text="${genders.get(gender)}"></label>
                                 </div>
                             </div>
+                            <span class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" style="padding-left: 10px;width: 400px;">Error message for name</span>
                         </div> <!-- form-group// -->
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="file" type="file" class="form-control" id="inputGroupFile02">
+                                <input name="file" type="file" class="form-control" id="inputGroupFile02" th:value="asd.phm">
                                 <label class="input-group-text" for="inputGroupFile02">Upload Avatar</label>
                             </div>
                         </div> <!-- form-group// -->
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
                         </div> <!-- form-group// -->
