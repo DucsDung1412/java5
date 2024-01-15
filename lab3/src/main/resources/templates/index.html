@@ -21,31 +21,31 @@
                     <p class="divider-text">
                         <span class="bg-light">OR</span>
                     </p>
-                    <form action="#" th:action="@{/student/save}" th:object="${student}" method="POST">
+                    <form action="#" th:action="@{/student/save}" th:object="${student}" method="POST" enctype="multipart/form-data">
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text">
+                            <input th:field="*{name}" class="form-control" placeholder="Full name" type="text">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                             </div>
-                            <input name="email" class="form-control" placeholder="Email address" type="email">
+                            <input th:field="*{email}" class="form-control" placeholder="Email address" type="email">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                             </div>
-                            <input name="mark" class="form-control" placeholder="Marks" type="number">
+                            <input th:field="*{marks}" class="form-control" placeholder="Marks" type="number">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                             </div>
-                            <select class="form-control">
-                                <option th:each="faculty : ${faculties}"><span th:text="${faculty}"></span></option>
+                            <select class="form-control" th:field="*{faculty}">
+                                <option th:each="faculty : ${faculties}" th:value="${faculty}" th:name="${faculty}" th:text="${faculty}"></option>
                             </select>
                         </div> <!-- form-group end.// -->
                         <div class="form-group input-group align-items-center">
@@ -55,7 +55,7 @@
                             <span class="mx-2">Hobbies:</span>
                             <div class="">
                                 <div class="form-check form-check-inline" th:each="hobby : ${hobbies.keySet()}">
-                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" th:id="'inlineRadio' + ${hobby}" th:value="${hobby}">
+                                    <input class="form-check-input" type="checkbox" th:field="*{hobbies}" name="inlineRadioOptions" th:id="'inlineRadio' + ${hobby}" th:value="${hobbies.get(hobby)}">
                                     <label class="form-check-label" th:for="'inlineRadio' + ${hobby}" th:text="${hobbies.get(hobby)}">2</label>
                                 </div>
                             </div>
@@ -67,14 +67,14 @@
                             <span class="ms-3">Gender:</span>
                             <div class="ms-3">
                                 <div class="form-check form-check-inline" th:each="gender : ${genders.keySet()}">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" th:id="'inlineRadio' + ${gender}" th:value="${gender}">
+                                    <input th:field="*{gender}" class="form-check-input" type="radio" name="inlineRadioOptions" th:id="'inlineRadio' + ${gender}" th:value="${gender}">
                                     <label class="form-check-label" th:for="'inlineRadio' + ${gender}" th:text="${genders.get(gender)}"></label>
                                 </div>
                             </div>
                         </div> <!-- form-group// -->
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="file" class="form-control" id="inputGroupFile02">
+                                <input name="file" type="file" class="form-control" id="inputGroupFile02">
                                 <label class="input-group-text" for="inputGroupFile02">Upload Avatar</label>
                             </div>
                         </div> <!-- form-group// -->
