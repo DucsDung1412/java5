@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="col-4 card my-3" th:fragment="category">
+        <div class="card-header bg-primary text-light" th:text="#{category}">
+            Category
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{clock}">Đồng hồ</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{laptop}">Máy tính xách tay</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{camera}">Máy ảnh</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{phone}">Điện thoại</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{perfume}">Nước hóa</a></li>
+            <li class="list-group-item"><a class="text-decoration-none text-black" href="#" th:text="#{jewelry}">Trang Sức</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div th:fragment="nav" class="my-2">
+            <header class="p-3 text-bg-dark">
+                <div class="container">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-2" style="width: 80px;">
+                            <img class="w-100" src="https://upload.wikimedia.org/wikipedia/commons/2/20/FPT_Polytechnic.png">
+                        </a>
+
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="#" class="nav-link px-2 text-secondary" th:text="#{home}">Home</a></li>
+                            <li><a href="#" class="nav-link px-2 text-white" th:text="#{about}">About</a></li>
+                            <li><a href="#" class="nav-link px-2 text-white" th:text="#{contact}">Contact</a></li>
+                            <li><a href="#" class="nav-link px-2 text-white" th:text="#{feedback}">Feedback</a></li>
+                            <li><a href="#" class="nav-link px-2 text-white" th:text="#{faqs}">FAQs</a></li>
+                        </ul>
+
+                        <div class="text-end">
+                            <a href="?lang=eng" class="btn btn-outline-light me-2" th:text="#{lang.eng}">English</a>
+                            <a href="?lang=gr" class="btn btn-outline-light" th:text="#{lang.gr}">VietNamese</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </body>
+</html>
